@@ -86,7 +86,7 @@ since \alpha > 1\\
 \end{align}
 
 
-BODE PLOTS -
+
 \begin{figure}[h]
  
 \begin{subfigure}{\textwidth}
@@ -103,18 +103,6 @@ phase margin \phi_m = 180 + \phi_{gain = 0}\\
 as\ lead\ compensator\ adds additional\ phase\ at\ all\ frequencies, \\
 $\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin
 
-
-
-Bode plot - increased phase margin - 
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/lead_compensator_phase.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
 Relation between phase margin and damping ratio
 Now,
 \zeta = 0.01 $\times$ \phi_m\\
@@ -125,9 +113,27 @@ from this we get that damping factor also increases.\\
 
 \implies settling\ time\ decreased\\
 
+\begin{align}
+G(s) = \frac{1}{(s)(3s+1)}\\
+D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
+G_{1}(s) = \frac{1}{s(s+1)}
+\end{align}
 
+\begin{figure}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/lead_compensator_phase.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
 
-Relation between phase margin and damping ratio
+\begin{figure}
+\begin{subfigure}{\textwidth}
+\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/settling_time.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+    
+Relation between phase margin and damping ratio.
 Consider a second order system,\\
 
 G(s) = {\huge{$\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} $}}\\
@@ -148,18 +154,8 @@ a handy relation is - \zeta = 0.01\phi_m\\
 \end{subfigure}
 \end{figure}
 
-    
 
-
-
-Time response - reduced settling time - 
-\begin{figure}[h]
  
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/settling_time.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
 
     
 Statement - B\\Lag compensator is used to reduce the steady state error
@@ -234,7 +230,7 @@ Maximum power in denominator = 2\\
 Hence order increased to 2 from 1
 \end{flushleft}
 
-\\
+\\\\
 Statement - D\\ Lag compensator always stabilizes an unstable system
 \begin{flushleft}
 This statement is wrong.\\
