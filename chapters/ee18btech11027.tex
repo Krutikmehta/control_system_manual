@@ -6,94 +6,79 @@
 (C) Lead compensator may increase the order of a system\\
 (D) Lag compensator always stabilzes an unstable system\\
 \\
-\solution Lead and Lag compensators - 
-\\* \textbf{Lead compensator } - The lead compensator is an electrical network which produces a output having \textbf{phase lead} when a input is applied. 
-\\
-\begin{equation}
-H(s) = \frac{s+z}{s+p}   0 \textless z \textless p
-\centering
-\end{equation}
-\\* \textbf{\\Lag compensator} - The Lag Compensator is an electrical network which produces a  output having the \textbf{phase lag} when a input is applied.
-\begin{equation}
-H(s) = \frac{s+z}{s+p}  \hspace{1cm} 0 \textless p \textless z
-\centering
-\end{equation}
-
-
-Lead compensators - 
-The lead compensator circuit in the ‘s’ domain is shown in the following figure.
- 
-\begin{figure}[h]
- 
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lead_compensator.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
-Lead compensator - 
-The transfer function of this lead compensator is -
-\begin{align}
-    \frac{V_o(s)}{V_i(s)} = \beta  \frac{s \tau +1}{s\beta \tau +1} \\
-where\\
-\tau = R_1C  \beta =\frac{R_2}{R_1+R_2}
-\end{align}
-
-\vspace{0.3cm}substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \beta  \frac{j\omega \tau +1}{j \omega\beta \tau +1}
-
-\\
-\begin{align}
-phase angle \phi = \tan^{-1} {(\omega\tau)} - \tan{-1}{(\omega\beta\tau)}\\
-since 0 \textless \ \beta < 1\\
-\phi > 0
-\end{align}
-
-
-
-
-Lag compensators - 
-The lag compensator circuit in the ‘s’ domain is shown in the following figure.
- 
-\begin{figure}[h]
- 
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lag_compensator.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-The transfer function of this lag compensator is -
-\begin{align}
-    \frac{V_o(s)}{V_i(s)} = \frac{1}{\alpha}  \frac{s + \frac{1}{\tau}}{s + \frac{1}{\alpha\tau}} \\
-where\\
- \tau = R_2C  \alpha =\frac{R_1+R_2}{R_2}
-\end{align}
-
-substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \frac{1}{\alpha}  \frac{j\omega + \frac{1}{\tau}}{j\omega + \frac{1}{\alpha\tau}}
-
-\begin{align}
-phase angle \hspace{1cm}\phi = \tan^{-1} {(\omega\tau)} - \tan^{-1}{(\omega\alpha\tau)}\\
-since \alpha > 1\\
-\phi < 0
-\end{align}
-
-
-
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/Screen.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
+\solution 
 
 Statement - A\\Lead compensator is used to reduce settling time.
 \begin{align}
+system-G(s) = \frac{1}{s(3s+1)}\\
+lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
+hence, new\ system-G_{1}(s) = \frac{1}{s(s+1)}
+\end{align}
+\\
+\textbf{unit impulse response}\\
+without lead compensator - \\
+\begin{align}
+G(s) = \frac{1}{(s)(3s+1)}\\
+Y(s) = G(s).1\\
+Y(s) = \frac{1}{(s)(3s+1)}
+\end{align}
+splitting into partial fractions\\
+\begin{align}
+Y(s) = \frac{1}{s} - \frac{1}{s+\frac{1}{3}}
+\end{align}
+taking inverse laplace transform, \\
+\begin{align}
+y(t) = [ 1 - e^{\frac{-t}{3}}]u(t)
+\end{align}
+\\
+with lead compensator - \\
+\begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
-G_{1}(s) = \frac{1}{s(s+1)}
+G_{1}(s) = \frac{1}{s(s+1)}\\
+Y_{1}(s) = G_{1}(s).1\\
+Y_{1}(s) = \frac{1}{s(s+1)}
+\end{align}
+splitting into partial fractions\\
+\begin{align}
+Y_{1}(s) = \frac{1}{s} - \frac{1}{s+1}
+\end{align}
+taking inverse laplace transform, \\
+\begin{align}
+y(t) = [ 1 - e^{-t}]u(t)
+\end{align}
+\\
+\textbf{unit step response}
+without lead compensator - \\
+\begin{align}
+G(s) = \frac{1}{(s)(3s+1)}\\
+Y(s) = G(s).\frac{1}{s}\\
+Y(S) = \frac{1}{(s^2)(3s+1)}
+\end{align}
+splitting into partial fractions\\
+\begin{align}
+Y(s) = \frac{1}{s^2} + \frac{3}{s+\frac{1}{3})} + \frac{-3}{s}
+\end{align}
+taking inverse laplace transform, \\
+\begin{align}
+y(t) = [t + 3e^{\frac{-t}{3}} - 3]u(t)
+\end{align}
+\\
+with lead compensator - \\
+\begin{align}
+G(s) = \frac{1}{(s)(3s+1)}\\
+D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
+G_{1}(s) = \frac{1}{s(s+1)}\\
+Y_{1}(s) = G_{1}(s).\frac{1}{s}\\
+Y_{1}(s) = \frac{1}{(s^2)(s+1)}
+\end{align}
+splitting into partial fractions\\
+\begin{align}
+Y_{1}(s) = \frac{1}{s^2} + \frac{1}{s+1} - \frac{1}{s}
+\end{align}
+taking inverse laplace transform, \\
+\begin{align}
+y(t) = [t + e^{-t} - 1]u(t)
 \end{align}
 \\
 \begin{figure}
@@ -109,11 +94,11 @@ G_{1}(s) = \frac{1}{s(s+1)}
 \label{fig:subim1}
 \end{subfigure}
 \end{figure}
-
+\\
 Since lead compensator adds + phase for any value of frequency, the bode plot for phase vs frequency is above the one which is without lead compensator.\\
 
 phase margin \phi_m = 180 + \phi_{gain = 0}\\
-as\ lead\ compensator\ adds additional\ phase\ at\ all\\
+as\ lead\ compensator\ adds\ additional\ phase\ at\ all\\
 frequencies, \\
 $\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin
 
@@ -127,20 +112,19 @@ from this we get that damping factor also increases.\\
 
 \implies settling\ time\ decreased\\
 
-
-
-    
 Relation between phase margin and damping ratio.
 Consider a second order system,\\
-
-G(s) = {\huge{$\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} $}}\\
+\begin{align}
+G(s) = {\huge{$\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} $}}
+\end{align}
  using value of $\phi_m$ to solve for $\zeta$.\\
 
 set 20 $\log{|G(s)|}$ = -3dB to solve for \omega_n\\
 
 using this equations we get,\\
-
-\phi_m = \tan^{-1}{\frac{2\zeta}{\sqrt{\sqrt{1+4\zeta^4} - 2\zeta^2}}}\\ \\
+\begin{align}
+\phi_m = \tan^{-1}{\frac{2\zeta}{\sqrt{\sqrt{1+4\zeta^4} - 2\zeta^2}}}
+\end{align}\\
 a handy relation is - \zeta = 0.01\phi_m\\
 
 \begin{figure}[h]
@@ -199,9 +183,9 @@ since steady state error is given by -
 
 
 
-for low frequencies - the gain is high \implies G(s) \to \large number\\
-\implies e(\infty) \to smaller value\\
-\implies steady\ state\ error\ decreases \\
+for low frequencies - the gain is high \implies G(s) \to large number\\
+{\implies e(\infty) \to smaller value\\}
+{\implies steady\ state\ error\ decreases} \\
 \begin{figure}[h]
  
 \begin{subfigure}{\textwidth}
@@ -210,25 +194,16 @@ for low frequencies - the gain is high \implies G(s) \to \large number\\
 \end{subfigure}
 \end{figure}
 \\
-Statement - C\\consider -
+Statement - C\\Lead\ compensator\ may\ increase\ the\ order\ of\ a\ system.
+\\
+consider -
 
-\centering
-G(s) = $\frac{1}{s+2}$\\
-\\
-\\
-\\
-D(s) = $\frac{s+1}{s+3}$\\
-\\
-\\
-\\
-G(s)\textbf{.}D(s) = $\frac{s+1}{(s+2)(s+3)}$\\
-\\
-\\
-\\
-G(s)\textbf{.}D(s) = $\frac{s+1}{s^2+5s+6}$\\
-\\
-\\
-\\
+\begin{align}
+G(s) = \frac{1}{s+2}\\
+D(s) = \frac{s+1}{s+3}\\
+G(s)\textbf{.}D(s) = \frac{s+1}{(s+2)(s+3)}\\
+G(s)\textbf{.}D(s) = \frac{s+1}{s^2+5s+6}
+\end{align}
 \begin{flushleft}
 Maximum power in denominator = 2\\
 Hence order increased to 2 from 1\\
@@ -259,6 +234,86 @@ If a system has a pole on right side of s plane, lag compensator cannot stabiliz
  
 \begin{subfigure}{\textwidth}
 \includegraphics[width=1.05\linewidth, height=8cm ,inner]{./figs/ee18btech11027/unstable.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+
+\textbf{Lead and Lag compensators -}
+\\
+\\* \textbf{Lead compensator } - The lead compensator is an electrical network which produces a output having \textbf{phase lead} when a input is applied. 
+\\
+\begin{equation}
+H(s) = \frac{s+z}{s+p}   0 \textless z \textless p
+\centering
+\end{equation}
+
+
+ 
+The lead compensator circuit in the ‘s’ domain is shown in the following figure.
+ 
+\begin{figure}[h]
+ 
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lead_compensator.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+
+
+ 
+The transfer function of this lead compensator is -
+\begin{align}
+    \frac{V_o(s)}{V_i(s)} = \beta  \frac{s \tau +1}{s\beta \tau +1} \\
+where\\
+\tau = R_1C  \beta =\frac{R_2}{R_1+R_2}
+\end{align}
+
+\vspace{0.3cm}substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \beta  \frac{j\omega \tau +1}{j \omega\beta \tau +1}
+
+\\
+\begin{align}
+phase angle \phi = \tan^{-1} {(\omega\tau)} - \tan{-1}{(\omega\beta\tau)}\\
+since 0 \textless \ \beta < 1\\
+\phi > 0
+\end{align}
+
+\\* \textbf{\\Lag compensator} - The Lag Compensator is an electrical network which produces a  output having the \textbf{phase lag} when a input is applied.
+\begin{equation}
+H(s) = \frac{s+z}{s+p}  \hspace{1cm} 0 \textless p \textless z
+\centering
+\end{equation}
+
+ 
+The lag compensator circuit in the ‘s’ domain is shown in the following figure.
+ 
+\begin{figure}[h]
+ 
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lag_compensator.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+\\
+The transfer function of this lag compensator is -
+\begin{align}
+    \frac{V_o(s)}{V_i(s)} = \frac{1}{\alpha}  \frac{s + \frac{1}{\tau}}{s + \frac{1}{\alpha\tau}} \\
+where\\
+ \tau = R_2C  \alpha =\frac{R_1+R_2}{R_2}
+\end{align}
+
+substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \frac{1}{\alpha}  \frac{j\omega + \frac{1}{\tau}}{j\omega + \frac{1}{\alpha\tau}}
+
+\begin{align}
+phase angle \hspace{1cm}\phi = \tan^{-1} {(\omega\tau)} - \tan^{-1}{(\omega\alpha\tau)}\\
+since \alpha > 1\\
+\phi < 0
+\end{align}
+
+\textbf{BODE PLOT}
+\begin{figure}[h]
+ 
+\begin{subfigure}{\textwidth}
+\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/Screen.eps} 
 \label{fig:subim1}
 \end{subfigure}
 \end{figure}
