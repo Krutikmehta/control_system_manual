@@ -40,12 +40,8 @@ where\\
 \tau = R_1C  \beta =\frac{R_2}{R_1+R_2}
 \end{align}
 
-\vspace{0.3cm}substituting s=j\omega \\
-\centering
-\begin{equation}
-\centering
- \frac{V_o(j\omega)}{V_i(j\omega)} = \beta  \frac{j\omega \tau +1}{j \omega\beta \tau +1}
-\end{equation}
+\vspace{0.3cm}substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \beta  \frac{j\omega \tau +1}{j \omega\beta \tau +1}
+
 \\
 \begin{align}
 phase angle \phi = \tan^{-1} {(\omega\tau)} - \tan{-1}{(\omega\beta\tau)}\\
@@ -74,11 +70,8 @@ where\\
  \tau = R_2C  \alpha =\frac{R_1+R_2}{R_2}
 \end{align}
 
-substituting s=j\omega \\
-\begin{equation}
-\centering
- \frac{V_o(j\omega)}{V_i(j\omega)} = \frac{1}{\alpha}  \frac{j\omega + \frac{1}{\tau}}{j\omega + \frac{1}{\alpha\tau}}
-\end{equation}
+substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \frac{1}{\alpha}  \frac{j\omega + \frac{1}{\tau}}{j\omega + \frac{1}{\alpha\tau}}
+
 \begin{align}
 phase angle \hspace{1cm}\phi = \tan^{-1} {(\omega\tau)} - \tan^{-1}{(\omega\alpha\tau)}\\
 since \alpha > 1\\
@@ -97,28 +90,12 @@ since \alpha > 1\\
 
 
 Statement - A\\Lead compensator is used to reduce settling time.
-Since lead compensator adds + phase for any value of frequency, the bode plot for phase vs frequency is above the one which is without lead compensator.\\
-
-phase margin \phi_m = 180 + \phi_{gain = 0}\\
-as\ lead\ compensator\ adds additional\ phase\ at\ all\ frequencies, \\
-$\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin
-
-Relation between phase margin and damping ratio
-Now,
-\zeta = 0.01 $\times$ \phi_m\\
-
-from this we get that damping factor also increases.\\
-
-\implies damping\ is\ increased \\
-
-\implies settling\ time\ decreased\\
-
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
 G_{1}(s) = \frac{1}{s(s+1)}
 \end{align}
-
+\\
 \begin{figure}
 \begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/lead_compensator_phase.eps} 
@@ -132,6 +109,26 @@ G_{1}(s) = \frac{1}{s(s+1)}
 \label{fig:subim1}
 \end{subfigure}
 \end{figure}
+
+Since lead compensator adds + phase for any value of frequency, the bode plot for phase vs frequency is above the one which is without lead compensator.\\
+
+phase margin \phi_m = 180 + \phi_{gain = 0}\\
+as\ lead\ compensator\ adds additional\ phase\ at\ all\\
+frequencies, \\
+$\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin
+
+Relation between phase margin and damping ratio
+Now,
+\zeta = 0.01 $\times$ \phi_m\\
+
+from this we get that damping factor also increases.\\
+
+\implies damping\ is\ increased \\
+
+\implies settling\ time\ decreased\\
+
+
+
     
 Relation between phase margin and damping ratio.
 Consider a second order system,\\
@@ -158,34 +155,7 @@ a handy relation is - \zeta = 0.01\phi_m\\
  
 
     
-Statement - B\\Lag compensator is used to reduce the steady state error
-From the bode plot it is clear that the lag compensator has an high gain for low frequencies.
-since steady state error is given by - 
-\begin{equation}
-    e(\infty) = \lim_{s\to0} \frac{sR(s)}{1+G(s)}
-\end{equation}
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=4cm ,inner]{./figs/ee18btech11027/unity.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
-
-for low frequencies - the gain is high \implies G(s) \to \large number\\
-\implies e(\infty) \to smaller value\\
-\implies steady\ state\ error\ decreases \\
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=4cm ,inner]{./figs/ee18btech11027/table.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
+Statement - B\\Lag compensator is used to reduce the steady state error.\\
 Verification - 
 Let the system transfer function be -
 \begin{equation}
@@ -210,39 +180,80 @@ as s \to 0
 With lag compensator = $\frac{1}{1+G(s)}$\\
 
 as s \to 0
-{\implies} $E_{ss} = \frac{1}{1+1.5}$  \implies E_{ss} = 0.4
-\\
+{\implies} $E_{ss} = \frac{1}{1+1.5}$  \implies E_{ss} = 0.4\\
 
-Statement - C\\Lead compensator may increase the order of a system
-since the transfer function adds a pole and a zero therefore it may increase the order of a system.\\
-For example -
+hence,\ the\ steady\ state\ error\ reduces.\\
+\\
+From\ the\ bode\ plot\ it\ is\ clear\ that\ the\ lag\ compensator\ has\ an\ high\ gain\ for\ low frequencies.\\
+since steady state error is given by - 
+\begin{align}
+    e(\infty) = \lim_{s\to0} \frac{sR(s)}{1+G(s)}
+\end{align}
+\begin{figure}[h]
+ 
+\begin{subfigure}{\textwidth}
+\includegraphics[width=1\linewidth, height=4cm ,inner]{./figs/ee18btech11027/unity.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+
+
+
+for low frequencies - the gain is high \implies G(s) \to \large number\\
+\implies e(\infty) \to smaller value\\
+\implies steady\ state\ error\ decreases \\
+\begin{figure}[h]
+ 
+\begin{subfigure}{\textwidth}
+\includegraphics[width=1\linewidth, height=4cm ,inner]{./figs/ee18btech11027/table.eps} 
+\label{fig:subim1}
+\end{subfigure}
+\end{figure}
+\\
+Statement - C\\consider -
 
 \centering
 G(s) = $\frac{1}{s+2}$\\
+\\
+\\
+\\
 D(s) = $\frac{s+1}{s+3}$\\
-
+\\
+\\
+\\
 G(s)\textbf{.}D(s) = $\frac{s+1}{(s+2)(s+3)}$\\
-
+\\
+\\
+\\
 G(s)\textbf{.}D(s) = $\frac{s+1}{s^2+5s+6}$\\
-
+\\
+\\
+\\
 \begin{flushleft}
 Maximum power in denominator = 2\\
-Hence order increased to 2 from 1
+Hence order increased to 2 from 1\\
+Lead compensator may increase the order of a system
+since the transfer function adds a pole and a zero therefore it may increase the order of a system.\\
 \end{flushleft}
-
-\\\\
-Statement - D\\ Lag compensator always stabilizes an unstable system
+\\
+\\
+\\
+\\
 \begin{flushleft}
-This statement is wrong.\\
-If a system has a pole on right side of s plane, lag compensator cannot stabilize those systems. This is because the resulting system also has an pole on the right side of s plane.
+Statement - D\\ Lag compensator always stabilizes an unstable system.
+\begin{flushleft}
+This statement is wrong.Consider,\\
 \end{flushleft}
 \begin{align}
-$R(s) = \frac{1}{s-2}$\\
-
-$G(s) = \frac{s+3}{s+1}$\\
-$R(s)\textbf{.}G(s) = \frac{(s+3)}{(s-2)(s+1)}$\\ \\
+G(s) = \frac{1}{s-2}\\
+D(s) = \frac{s+3}{s+1}\\
+G(s)\textbf{.}D(s) = \frac{(s+3)}{(s-2)(s+1)}\\ \\
 output = 1.66e^{(2t)} + 0.66e^{(-t)}
 \end{align}
+\begin{flushleft}
+If a system has a pole on right side of s plane, lag compensator cannot stabilize those systems. This is because the resulting system also has an pole on the right side of s plane.
+\end{flushleft}
+
 
 \textbf{}\begin{figure}[h]
  
