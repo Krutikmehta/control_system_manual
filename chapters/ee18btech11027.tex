@@ -7,7 +7,12 @@
 (D) Lag compensator always stabilzes an unstable system\\
 \\
 \solution 
-
+\begin{figure}[h]
+\begin{center}
+\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz.tex}}
+\end{center}
+\end{figure}
+\\
 Statement - A\\Lead compensator is used to reduce settling time.
 \begin{align}
 system-G(s) = \frac{1}{s(3s+1)}\\
@@ -173,16 +178,8 @@ since steady state error is given by -
 \begin{align}
     e(\infty) = \lim_{s\to0} \frac{sR(s)}{1+G(s)}
 \end{align}
-
-
-
-\begin{figure}[h]
-\begin{center}
-\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz.tex}}
-\end{center}
-\end{figure}
 \\
-for low frequencies - the gain is high \implies G(s) \to large\ number\\
+for low frequencies - the gain is high \implies G(s) \to large\ number\\in
 {\implies e(\infty) \to smaller\ value\\}
 {\implies steady\ state\ error\ decreases} \\
 \begin{figure}[h]
@@ -307,6 +304,7 @@ phase angle \hspace{1cm}\phi = \tan^{-1} {(\omega\tau)} - \tan^{-1}{(\omega\alph
 since \alpha > 1\\
 \phi < 0
 \end{align}
+\\
 
 \textbf{BODE PLOT}
 \begin{figure}[h]
