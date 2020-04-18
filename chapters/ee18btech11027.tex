@@ -1,27 +1,37 @@
 \begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
 \numberwithin{equation}{enumi}
-\item Which of the following is \textbf{incorrect} ?\\
-(A) Lead compensator is used to reduce the settling time\\
-(B) Lag compensator is used to reduce the steady state error\\
-(C) Lead compensator may increase the order of a system\\
-(D) Lag compensator always stabilzes an unstable system\\
+\item Lead compensator is used to reduce settlling time. Explain.\\
 \\
 \solution 
+\\
+\\
+\textbf{system}
 \begin{figure}[h]
 \begin{center}
 \resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz.tex}}
 \end{center}
-\end{figure}
+\end{figure}\\
+
+ \textbf{compensated system}
+\begin{figure}[h]
+\begin{center}
+\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz1.tex}}
+\end{center}
+\end{figure}\\
+\textbf{Settling time - }\\
+It is the time required for the response to reach the steady state and stay within the specified tolerance bands around the final value. In general, the tolerance bands are 2\% and 5\%.
 \\
-Statement - A\\Lead compensator is used to reduce settling time.
+Lead compensator is used to reduce settling time - \\
+let,\\
 \begin{align}
 system-G(s) = \frac{1}{s(3s+1)}\\
 lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
 hence, new\ system-G_{1}(s) = \frac{1}{s(s+1)}
 \end{align}
 \\
+
 \textbf{unit impulse response}\\
-without lead compensator - \\
+a). without lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 Y(s) = G(s).1\\
@@ -36,7 +46,7 @@ taking inverse laplace transform, \\
 y(t) = [ 1 - e^{\frac{-t}{3}}]u(t)
 \end{align}
 \\
-with lead compensator - \\
+b). with lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
@@ -53,8 +63,8 @@ taking inverse laplace transform, \\
 y(t) = [ 1 - e^{-t}]u(t)
 \end{align}
 \\
-\textbf{unit step response}
-without lead compensator - \\
+\textbf{unit step response}\\
+a). without lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 Y(s) = G(s).\frac{1}{s}\\
@@ -62,17 +72,17 @@ Y(S) = \frac{1}{(s^2)(3s+1)}
 \end{align}
 splitting into partial fractions\\
 \begin{align}
-Y(s) = \frac{1}{s^2} + \frac{3}{s+\frac{1}{3})} + \frac{-3}{s}
+Y(s) = \frac{1}{s^2} + \frac{3}{s+\frac{1}{3}} + \frac{-3}{s}
 \end{align}
 taking inverse laplace transform, \\
 \begin{align}
 y(t) = [t + 3e^{\frac{-t}{3}} - 3]u(t)
 \end{align}
 \\
-with lead compensator - \\
+b). with lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
+D(s) = \frac{3(s+\frac{1}{3})}{s+1} \\
 G_{1}(s) = \frac{1}{s(s+1)}\\
 Y_{1}(s) = G_{1}(s).\frac{1}{s}\\
 Y_{1}(s) = \frac{1}{(s^2)(s+1)}
@@ -85,44 +95,49 @@ taking inverse laplace transform, \\
 \begin{align}
 y(t) = [t + e^{-t} - 1]u(t)
 \end{align}
-\\
+
+
 \begin{figure}
-\begin{subfigure}{\textwidth}
+\ \ \ \textbf{phase plot}\\
+%\begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/lead_compensator_phase.eps} 
 \label{fig:subim1}
-\end{subfigure}
+%\end{subfigure}
 \end{figure}
 
 \begin{figure}
-\begin{subfigure}{\textwidth}
+\ \ \ \textbf{reduced settling time}\\
+%\begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/settling_time.eps} 
 \label{fig:subim1}
-\end{subfigure}
+%\end{subfigure}
 \end{figure}
-\\
+Hence, from both examples we can see that settling time is reduced by using a lead compensator.\\
+
+\textbf{Theoritically -}
 Since lead compensator adds + phase for any value of frequency, the bode plot for phase vs frequency is above the one which is without lead compensator.\\
 
 phase margin \phi_m = 180 + \phi_{gain = 0}\\
-as\ lead\ compensator\ adds\ additional\ phase\ at\ all\\
-frequencies, \\
-$\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin
+as\ lead\ compensator\ adds\ additional\ phase\\
+at\ all\ frequencies, \\
+$\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin.\\
 
-Relation between phase margin and damping ratio
-Now,
+Relation between phase margin and damping ratio.\\
+
 \zeta = 0.01 $\times$ \phi_m\\
 
-from this we get that damping factor also increases.\\
+From this we get that damping factor also increases with phase margin.\\
 
 \implies damping\ is\ increased \\
 
 \implies settling\ time\ decreased\\
 
-Relation between phase margin and damping ratio.
-Consider a second order system,\\
+Deriving a relation between phase margin and damping ratio.
+Consider a second order system,
 \begin{align}
-G(s) = {\huge{$\frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} $}}
+G(s) = \frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} 
 \end{align}
- using value of $\phi_m$ to solve for $\zeta$.\\
+using value of $\phi_m$ to solve for $\zeta$.\\
 
 set 20 $\log{|G(s)|}$ = -3dB to solve for \omega_n\\
 
@@ -133,187 +148,13 @@ using this equations we get,\\
 a handy relation is - \zeta = 0.01\phi_m\\
 
 \begin{figure}[h]
- 
+ \textbf{phase margin vs damping ratio}
 \begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/realtion.eps} 
 \label{fig:subim1}
 \end{subfigure}
 \end{figure}
-
-
- 
-
-    
-Statement - B\\Lag compensator is used to reduce the steady state error.\\
-Verification - 
-Let the system transfer function be -
-\begin{equation}
-   c(s)= \frac{1}{s+2}
-\end{equation}
-and the lag compensator be- 
-\begin{equation}
-   t(s)= \frac{s+3}{s+1}
-\end{equation}
-therefore resulting system transfer function-
-\begin{equation}
-    G(s) = \frac{s+3}{(s+2)(s+1)}
-\end{equation}
-
-Hence steady state error for unit step input,\\
-
-Without lag compensator = $\frac{1}{1+c(s)}$ \\
-
-as s \to 0
-\implies $E_{ss} = \frac{1}{1+0.5}$  \implies E_{ss} = 0.66\\
-
-With lag compensator = $\frac{1}{1+G(s)}$\\
-
-as s \to 0
-{\implies} $E_{ss} = \frac{1}{1+1.5}$  \implies E_{ss} = 0.4\\
-
-hence,\ the\ steady\ state\ error\ reduces.\\
-\\
-From\ the\ bode\ plot\ it\ is\ clear\ that\ the\ lag\ compensator\ has\ an\ high\ gain\ for\ low frequencies.\\
-since steady state error is given by - 
-\begin{align}
-    e(\infty) = \lim_{s\to0} \frac{sR(s)}{1+G(s)}
-\end{align}
-\\
-for low frequencies - the gain is high \implies G(s) \to large\ number\\in
-{\implies e(\infty) \to smaller\ value\\}
-{\implies steady\ state\ error\ decreases} \\
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=4cm ,inner]{./figs/ee18btech11027/table.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-\\
-Statement - C\\Lead\ compensator\ may\ increase\ the\ order\ of\ a\ system.
-\\
-consider -
-
-\begin{align}
-G(s) = \frac{1}{s+2}\\
-D(s) = \frac{s+1}{s+3}\\
-G(s)\textbf{.}D(s) = \frac{s+1}{(s+2)(s+3)}\\
-G(s)\textbf{.}D(s) = \frac{s+1}{s^2+5s+6}
-\end{align}
-\begin{flushleft}
-Maximum power in denominator = 2\\
-Hence order increased to 2 from 1\\
-Lead compensator may increase the order of a system
-since the transfer function adds a pole and a zero therefore it may increase the order of a system.\\
-\end{flushleft}
-\\
-\\
-\\
-\\
-\begin{flushleft}
-Statement - D\\ Lag compensator always stabilizes an unstable system.
-\begin{flushleft}
-This statement is wrong.Consider,\\
-\end{flushleft}
-\begin{align}
-G(s) = \frac{1}{s-2}\\
-D(s) = \frac{s+3}{s+1}\\
-G(s)\textbf{.}D(s) = \frac{(s+3)}{(s-2)(s+1)}\\ \\
-output = 1.66e^{(2t)} + 0.66e^{(-t)}
-\end{align}
-\begin{flushleft}
-If a system has a pole on right side of s plane, lag compensator cannot stabilize those systems. This is because the resulting system also has an pole on the right side of s plane.
-\end{flushleft}
-
-
-\textbf{}\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1.05\linewidth, height=8cm ,inner]{./figs/ee18btech11027/unstable.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-\textbf{Lead and Lag compensators -}
-\\
-\\* \textbf{Lead compensator } - The lead compensator is an electrical network which produces a output having \textbf{phase lead} when a input is applied. 
-\\
-\begin{equation}
-H(s) = \frac{s+z}{s+p}   0 \textless z \textless p
-\centering
-\end{equation}
-
-
- 
-The lead compensator circuit in the ‘s’ domain is shown in the following figure.
- 
-\begin{figure}[h]
- 
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lead_compensator.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
- 
-The transfer function of this lead compensator is -
-\begin{align}
-    \frac{V_o(s)}{V_i(s)} = \beta  \frac{s \tau +1}{s\beta \tau +1} \\
-where\\
-\tau = R_1C  \beta =\frac{R_2}{R_1+R_2}
-\end{align}
-
-\vspace{0.3cm}substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \beta  \frac{j\omega \tau +1}{j \omega\beta \tau +1}
-
-\\
-\begin{align}
-phase angle \phi = \tan^{-1} {(\omega\tau)} - \tan{-1}{(\omega\beta\tau)}\\
-since 0 \textless \ \beta < 1\\
-\phi > 0
-\end{align}
-
-\\* \textbf{\\Lag compensator} - The Lag Compensator is an electrical network which produces a  output having the \textbf{phase lag} when a input is applied.
-\begin{equation}
-H(s) = \frac{s+z}{s+p}  \hspace{1cm} 0 \textless p \textless z
-\centering
-\end{equation}
-
- 
-The lag compensator circuit in the ‘s’ domain is shown in the following figure.
- 
-\begin{figure}[h]
- 
-\begin{subfigure}{0.5\textwidth}
-\includegraphics[width=0.9\linewidth, height=5cm ,inner]{./figs/ee18btech11027/lag_compensator.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-\\
-The transfer function of this lag compensator is -
-\begin{align}
-    \frac{V_o(s)}{V_i(s)} = \frac{1}{\alpha}  \frac{s + \frac{1}{\tau}}{s + \frac{1}{\alpha\tau}} \\
-where\\
- \tau = R_2C  \alpha =\frac{R_1+R_2}{R_2}
-\end{align}
-
-substituting s=j\omega, \ \frac{V_o(j\omega)}{V_i(j\omega)} = \frac{1}{\alpha}  \frac{j\omega + \frac{1}{\tau}}{j\omega + \frac{1}{\alpha\tau}}
-
-\begin{align}
-phase angle \hspace{1cm}\phi = \tan^{-1} {(\omega\tau)} - \tan^{-1}{(\omega\alpha\tau)}\\
-since \alpha > 1\\
-\phi < 0
-\end{align}
-\\
-
-\textbf{BODE PLOT}
-\begin{figure}[h]
- 
-\begin{subfigure}{\textwidth}
-\includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/Screen.eps} 
-\label{fig:subim1}
-\end{subfigure}
-\end{figure}
-
-
 \end{enumerate}
+
+Hence,the settling time is reduced by using a lead compensator.\\
+Similarly if we use a lag compensator the settling time increases as the phase margin decreases.
