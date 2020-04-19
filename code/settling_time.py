@@ -2,11 +2,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-x=np.linspace(0,10,1000)
-y1=1-np.exp(-x/3)
-y2=1-np.exp(-x)
-u1=x+3*np.exp(-x/3)-3
-u2=x+np.exp(-x)-1
+x=np.linspace(0,25,1000)
+y1=2*(np.exp(-x/6))*(np.sin(((11)**0.5)*x/6))/ ((11)**0.5)
+y2=2*(np.exp(-x/2))*(np.sin((3)**0.5)*x/2)/((3)**0.5)
+u1=1 -((np.exp(-x/6))*(np.cos(((11)**0.5)*x/6)))-((np.exp(-x/6))*(np.sin(((11)**0.5)*x/6))/((11)**0.5))
+u2=1 -((np.exp(-x/2))*(np.cos(((3)**0.5)*x/6)))-((np.exp(-x/2))*(np.sin(((3)**0.5)*x/6))/((3)**0.5))
 
 plt.subplot(2,1,1)
 plt.xlabel('t')
