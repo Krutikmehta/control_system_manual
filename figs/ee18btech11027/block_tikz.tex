@@ -1,0 +1,21 @@
+\tikzstyle{block} = [draw, fill=blue!20, rectangle, 
+    minimum height=0.7cm, minimum width=0.7cm]
+\tikzstyle{sum} = [draw, fill=blue!20, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\begin{tikzpicture}[auto, node distance=2.5cm,>=latex']
+    % We start by placing the blocks
+    \node [input, name=input] {};
+    %\node [sum, right of=input] (sum) {};
+    \node [block, right of=input] (controller) {G(s)};
+    \node [output, right of=controller] (output) {};
+
+
+    \draw [draw,->] (input) -- node {$R(s)$} (controller);
+    %\draw [->] (sum) -- node {$E(s)$} (controller);
+    \draw [->] (controller) -- node [name=y] {$Y(s)$}(output);
+   % \draw [->] (y) -- ++ (0,-2) -| node [pos=0.99] {$-$} (sum);
+ 
+\end{tikzpicture}
