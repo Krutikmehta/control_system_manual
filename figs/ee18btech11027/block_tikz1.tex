@@ -12,7 +12,7 @@
     % We start by placing the blocks
     \node [input, name=input] {};
     \node [sum, right of=input] (sum) {};
-    \node [block, right of=sum] (controller) {H(s)};
+    \node [block, right of=sum] (controller) {G(s)};
     \node [block, right of=controller,
            node distance = 4cm ] (system) {D(s)};
     % We draw an edge between the controller and system block to 
@@ -25,7 +25,7 @@
     \draw [draw,->] (input) -- node {$R(s)\ +$} (sum);
     \draw [->] (sum) -- node {} (controller);
     \draw [->] (system) -- node [name=y] {$Y(s)$}(output);
-    \draw [->] (u) |- (tmp) -| node[pos=0.99] {$-$} 
+    \draw [->] (y) |- (tmp) -| node[pos=0.99] {$-$} 
         node [near end] {} (sum);
 \end{tikzpicture}
 
