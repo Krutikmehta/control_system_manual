@@ -23,31 +23,34 @@
 It is the time required for the response to reach the steady state and stay within the specified tolerance bands around the final value. In general, the tolerance bands are 2\% and 5\%.
 \\
 Lead compensator is used to reduce settling time - \\
-\begin{align}
-here, G(s) =  \frac{H(s)}{1+H(s)}
-\end{align}
+
 let,\\
 \begin{align}
 system-G(s) = \frac{1}{s(3s+1)}\\
-lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
-hence, new\ system-G_{1}(s) = \frac{1}{s(s+1)}
+lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)}
 \end{align}
+\begin{equation}
+    \begin{split}
+        hence, new\ system-G_{1}(s) = G(s)D(s)\\
+        \frac{1}{s(s+1)}
+    \end{split}
+\end{equation}
+
+
 \\
 
 \textbf{unit impulse response}\\
 a). without lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
-Y(s) = G(s).1\\
-Y(s) = \frac{1}{(s)(3s+1)}
-\end{align}
-splitting into partial fractions\\
-\begin{align}
-Y(s) = \frac{1}{s} - \frac{1}{s+\frac{1}{3}}
+Y(s) = \frac{G(s)}{1+G(s).1}.R(s)\\
+Y(s) = \frac{G(s)}{1+G(s).1}.1\\
+Y(s) = \frac{1}{3s^2+s+1}\\
+Y(s) = \frac{1}{3}\frac{1}{(s+\frac{1}{6})^2 + \frac{11}{36}}
 \end{align}
 taking inverse laplace transform, \\
 \begin{align}
-y(t) = [ 1 - e^{\frac{-t}{3}}]u(t)
+y(t) = [\frac{2}{\sqrt{11}}e^{\frac{-t}{6}}sin(\frac{\sqrt{11}t}{6}))]u(t)
 \end{align}
 \\
 b). with lead compensator - \\
@@ -55,50 +58,59 @@ b). with lead compensator - \\
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
 G_{1}(s) = \frac{1}{s(s+1)}\\
-Y_{1}(s) = G_{1}(s).1\\
-Y_{1}(s) = \frac{1}{s(s+1)}
-\end{align}
-splitting into partial fractions\\
-\begin{align}
-Y_{1}(s) = \frac{1}{s} - \frac{1}{s+1}
+Y_{1}(s) = \frac{G_{1}(s)}{1+G_{1}(s)}.R(s)\\
+Y_{1}(s) = \frac{G_{1}(s)}{1+G_{1}(s)}.1\\
+Y_{1}(s) = \frac{1}{s^2+s+1}\\
+Y_{1}(s) = \frac{1}{(s+\frac{1}{2})^2 + \frac{3}{4}} 
 \end{align}
 taking inverse laplace transform, \\
 \begin{align}
-y(t) = [ 1 - e^{-t}]u(t)
+y(t) = [\frac{2}{\sqrt{3}}e^{\frac{-t}{2}}sin(\frac{\sqrt{3}t)}{2})]u(t)
 \end{align}
 \\
 \textbf{unit step response}\\
 a). without lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
-Y(s) = G(s).\frac{1}{s}\\
-Y(S) = \frac{1}{(s^2)(3s+1)}
+Y(s) = \frac{G(s)}{1+G(s).1}.R(s)\\
+Y(s) = \frac{G(s)}{1+G(s)}.\frac{1}{s}\\
+Y(S) = \frac{1}{(s)(3s^2+s+1)}\\
+Y(s) = \frac{-3s-1}{3s^2+s+1} + \frac{1}{s}
 \end{align}
-splitting into partial fractions\\
-\begin{align}
-Y(s) = \frac{1}{s^2} + \frac{3}{s+\frac{1}{3}} + \frac{-3}{s}
-\end{align}
+\begin{equation}
+\begin{split}
+Y(s) = \frac{1}{s} - \frac{s+\frac{1}{6}}{(s+\frac{1}{6})^2 + \frac{11}{36}}\\ -\frac{1}{6}\frac{1}{(s+\frac{1}{6})^2  \frac{11}{36}}+
+\end{split}
+\end{equation}
 taking inverse laplace transform, \\
-\begin{align}
-y(t) = [t + 3e^{\frac{-t}{3}} - 3]u(t)
-\end{align}
+\begin{equation}
+\begin{split}
+y(t) = [1 - e^{\frac{-t}{6}}cos(\frac{\sqrt{11}t}{6})\\- \frac{1}{\sqrt{11}}e^{\frac{-t}{6}}sin(\frac{\sqrt{11}t}{6}) ]u(t)
+\end{split}
+\end{equation}
 \\
 b). with lead compensator - \\
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{s+1} \\
 G_{1}(s) = \frac{1}{s(s+1)}\\
-Y_{1}(s) = G_{1}(s).\frac{1}{s}\\
-Y_{1}(s) = \frac{1}{(s^2)(s+1)}
+Y_{1}(s) =\frac{G_{1}(s)}{1+G_{1}(s)}.R(s)\\
+Y_{1}(s) =\frac{G_{1}(s)}{1+G_{1}(s)}.\frac{1}{s}\\
+Y_{1}(s) = \frac{1}{s(s^2+s+1)}\\
+Y_{1}(s) = \frac{-s-1}{s^2+s+1} + \frac{1}{s}
 \end{align}
-splitting into partial fractions\\
-\begin{align}
-Y_{1}(s) = \frac{1}{s^2} + \frac{1}{s+1} - \frac{1}{s}
-\end{align}
+\begin{equation}
+    \begin{split}
+        Y_{1}(s) =  \frac{1}{s} - \frac{s+\frac{1}{2}}{(s+\frac{1}{2})^2+\frac{3}{4}}\\ - \frac{1}{2}\frac{1}{(s+\frac{1}{2})^2+\frac{3}{4}} + 
+    \end{split}
+\end{equation}
+
 taking inverse laplace transform, \\
-\begin{align}
-y(t) = [t + e^{-t} - 1]u(t)
-\end{align}
+\begin{equation}
+\begin{split}
+y(t) = [1 - e^{\frac{-t}{2}}cos(\frac{\sqrt{3}t}{2})\\- \frac{1}{\sqrt{3}}e^{\frac{-t}{2}}sin(\frac{\sqrt{3}t}{2}) ]u(t)
+\end{split}
+\end{equation}
 
 
 \begin{figure}
