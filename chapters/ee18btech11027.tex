@@ -12,12 +12,6 @@
 \end{center}
 \end{figure}\\
 
-\textbf{system(closed loop transfer function)}
-\begin{figure}[h]
-\begin{center}
-\resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz.tex}}
-\end{center}
-\end{figure}\\
 
  \textbf{compensated system}
 \begin{figure}[h]
@@ -29,6 +23,9 @@
 It is the time required for the response to reach the steady state and stay within the specified tolerance bands around the final value. In general, the tolerance bands are 2\% and 5\%.
 \\
 Lead compensator is used to reduce settling time - \\
+\begin{align}
+here, G(s) =  \frac{H(s)}{1+H(s)}
+\end{align}
 let,\\
 \begin{align}
 system-G(s) = \frac{1}{s(3s+1)}\\
