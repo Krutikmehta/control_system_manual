@@ -1,30 +1,26 @@
 \begin{enumerate}[label=\thesection.\arabic*.,ref=\thesection.\theenumi]
 \numberwithin{equation}{enumi}
-\item Lead compensator is used to reduce settlling time. Explain.\\
-\\
-\solution 
-\\
-\\
-\textbf{unity feedback system}
+\item Show by plotting the output that a lead compensator reduces settling time of a control system.\\
+\solution considering the above discussed control system \eqref{eq:ee18btech11021_gs} and the lead compensator.
+
+Unity feedback system - 
 \begin{figure}[h]
 \begin{center}
 \resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz2.tex}}
 \end{center}
-\end{figure}\\
+\end{figure}
 
-
- \textbf{compensated system}
+Compensated system - 
 \begin{figure}[h]
 \begin{center}
 \resizebox{\columnwidth}{!}{\input{./figs/ee18btech11027/block_tikz1.tex}}
 \end{center}
-\end{figure}\\
-\textbf{Settling time - }\\
-It is the time required for the response to reach the steady state and stay within the specified tolerance bands around the final value. In general, the tolerance bands are 2\% and 5\%.
-\\
-Lead compensator is used to reduce settling time - \\
+\end{figure}
 
-let,\\
+Settling time - \\
+It is the time required for the response to reach the steady state and stay within the specified tolerance bands around the final value. In general, the tolerance bands are 2\% and 5\%.
+
+let,
 \begin{align}
 system-G(s) = \frac{1}{s(3s+1)}\\
 lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)}
@@ -32,15 +28,12 @@ lead\ compensator-D(s) = \frac{3(s+\frac{1}{3})}{(s+1)}
 \begin{equation}
     \begin{split}
         hence, new\ system-G_{1}(s) = G(s)D(s)\\
-        \frac{1}{s(s+1)}
+        = \frac{1}{s(s+1)}
     \end{split}
 \end{equation}
 
-
-\\
-
-\textbf{unit impulse response}\\
-a). without lead compensator - \\
+1). Unit impulse response - \\
+a). without lead compensator - 
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 Y(s) = \frac{G(s)}{1+G(s).1}.R(s)\\
@@ -48,12 +41,12 @@ Y(s) = \frac{G(s)}{1+G(s).1}.1\\
 Y(s) = \frac{1}{3s^2+s+1}\\
 Y(s) = \frac{1}{3}\frac{1}{(s+\frac{1}{6})^2 + \frac{11}{36}}
 \end{align}
-taking inverse laplace transform, \\
+taking inverse laplace transform, 
 \begin{align}
 y(t) = [\frac{2}{\sqrt{11}}e^{\frac{-t}{6}}sin(\frac{\sqrt{11}t}{6}))]u(t)
 \end{align}
-\\
-b). with lead compensator - \\
+
+b). with lead compensator - 
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{(s+1)} \\
@@ -63,13 +56,13 @@ Y_{1}(s) = \frac{G_{1}(s)}{1+G_{1}(s)}.1\\
 Y_{1}(s) = \frac{1}{s^2+s+1}\\
 Y_{1}(s) = \frac{1}{(s+\frac{1}{2})^2 + \frac{3}{4}} 
 \end{align}
-taking inverse laplace transform, \\
+taking inverse laplace transform, 
 \begin{align}
 y(t) = [\frac{2}{\sqrt{3}}e^{\frac{-t}{2}}sin(\frac{\sqrt{3}t)}{2})]u(t)
 \end{align}
-\\
-\textbf{unit step response}\\
-a). without lead compensator - \\
+
+2). unit step response - \\
+a). without lead compensator - 
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 Y(s) = \frac{G(s)}{1+G(s).1}.R(s)\\
@@ -82,14 +75,14 @@ Y(s) = \frac{-3s-1}{3s^2+s+1} + \frac{1}{s}
 Y(s) = \frac{1}{s} - \frac{s+\frac{1}{6}}{(s+\frac{1}{6})^2 + \frac{11}{36}}\\ -\frac{1}{6}\frac{1}{(s+\frac{1}{6})^2  \frac{11}{36}}+
 \end{split}
 \end{equation}
-taking inverse laplace transform, \\
+taking inverse laplace transform, 
 \begin{equation}
-\begin{split}
-y(t) = [1 - e^{\frac{-t}{6}}cos(\frac{\sqrt{11}t}{6})\\- \frac{1}{\sqrt{11}}e^{\frac{-t}{6}}sin(\frac{\sqrt{11}t}{6}) ]u(t)
-\end{split}
+    \begin{split}
+        y(t) = [1 - e^{\frac{-t}{6}}cos(\frac{\sqrt{11}t}{6})\\- \frac{1}{\sqrt{11}}e^{\frac{-t}{6}}sin(\frac{\sqrt{11}t}{6}) ]u(t)
+    \end{split}
 \end{equation}
-\\
-b). with lead compensator - \\
+
+b). with lead compensator - 
 \begin{align}
 G(s) = \frac{1}{(s)(3s+1)}\\
 D(s) = \frac{3(s+\frac{1}{3})}{s+1} \\
@@ -105,63 +98,66 @@ Y_{1}(s) = \frac{-s-1}{s^2+s+1} + \frac{1}{s}
     \end{split}
 \end{equation}
 
-taking inverse laplace transform, \\
+taking inverse laplace transform, 
 \begin{equation}
-\begin{split}
-y(t) = [1 - e^{\frac{-t}{2}}cos(\frac{\sqrt{3}t}{2})\\- \frac{1}{\sqrt{3}}e^{\frac{-t}{2}}sin(\frac{\sqrt{3}t}{2}) ]u(t)
-\end{split}
+    \begin{split}
+        y(t) = [1 - e^{\frac{-t}{2}}cos(\frac{\sqrt{3}t}{2})\\- \frac{1}{\sqrt{3}}e^{\frac{-t}{2}}sin(\frac{\sqrt{3}t}{2}) ]u(t)
+    \end{split}
 \end{equation}
 
 
 \begin{figure}
-\ \ \ \textbf{phase plot}\\
 %\begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/lead_compensator_phase.eps} 
 \label{fig:subim1}
 %\end{subfigure}
 \end{figure}
 
+
 \begin{figure}
-\ \ \ \textbf{reduced settling time}\\
 %\begin{subfigure}{\textwidth}
 \includegraphics[width=1\linewidth, height=7cm ,inner]{./figs/ee18btech11027/settling_time.eps} 
 \label{fig:subim1}
 %\end{subfigure}
 \end{figure}
-Hence, from both examples we can see that settling time is reduced by using a lead compensator.\\
+Hence, from both examples we can see that settling time is reduced by using a lead compensator.
 
-\textbf{Theoritically -}
-Since lead compensator adds + phase for any value of frequency, the bode plot for phase vs frequency is above the one which is without lead compensator.\\
+\item Theoritically state how the lead compensator reduces settling time.\\
+\solution
+Since lead compensator adds +ve phase for any value of frequency, the phase bode plot of compensated system is above the one which is without lead compensator.
+\begin{align}
+    \phi_m = 180 + \phi_{gain = 0}
+\end{align}
 
-phase margin \phi_m = 180 + \phi_{gain = 0}\\
-as\ lead\ compensator\ adds\ additional\ phase\\
-at\ all\ frequencies, \\
-$\phi_{gain = 0}$ \ gets increased, and hence\ phase\ margin.\\
+as lead compensator adds additional phase
+at all frequencies, 
+$\phi_{gain = 0}$  gets increased, and hence\ phase\ margin.
 
-Relation between phase margin and damping ratio.\\
+Relation between phase margin and damping ratio.
+\zeta = 0.01 $\times$ \phi_m
 
-\zeta = 0.01 $\times$ \phi_m\\
-
-From this we get that damping factor also increases with phase margin.\\
-
+From this we get that damping factor also increases with phase margin.
+\begin{align}
 \implies damping\ is\ increased \\
+\implies settling\ time\ decreased
+\end{align}
 
-\implies settling\ time\ decreased\\
-
-Deriving a relation between phase margin and damping ratio.
+\item Derive a relation between phase margin and damping ratio.\\
+\solution
 Consider a second order system,
 \begin{align}
 G(s) = \frac{\omega_n^2}{s^2+2\zeta\omega_ns+\omega_n^2} 
 \end{align}
-using value of $\phi_m$ to solve for $\zeta$.\\
 
-set 20 $\log{|G(s)|}$ = -3dB to solve for \omega_n\\
+using value of $\phi_m$ to solve for $\zeta$.
+set 20 $\log{|G(s)|}$ = -3dB to solve for \omega_n
 
-using this equations we get,\\
+using this equations we get,
+
 \begin{align}
 \phi_m = \tan^{-1}{\frac{2\zeta}{\sqrt{\sqrt{1+4\zeta^4} - 2\zeta^2}}}
-\end{align}\\
-a handy relation is - \zeta = 0.01\phi_m\\
+\end{align}
+a handy relation is - \zeta = 0.01\phi_m
 
 \begin{figure}[h]
  \textbf{phase margin vs damping ratio}
@@ -170,7 +166,8 @@ a handy relation is - \zeta = 0.01\phi_m\\
 \label{fig:subim1}
 \end{subfigure}
 \end{figure}
-\end{enumerate}
 
-Hence,the settling time is reduced by using a lead compensator.\\
-Similarly if we use a lag compensator the settling time increases as the phase margin decreases.
+Hence,for a lead compensator phase margin increases, therfore damping increases, resulting in reduced settling time.
+Similarly if we use a lag compensator the settling time increases beacuse the phase margin decreases.
+
+\end{enumerate}
