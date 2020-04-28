@@ -1,5 +1,6 @@
 #closed loop magnitude response
 import control
+from scipy import signal
 import numpy as np 
 import matplotlib.pyplot as plt 
 
@@ -12,7 +13,7 @@ def M_circle(m):
   theta = np.linspace(0, 2*np.pi, 100)
   x0 = np.around(m**2/(1-m**2),decimals=2)
   y0 = np.around(0,decimals=2)
-  r = np.absolute(m/(1-m**2))
+  r = abs(m/(1-m**2))
   x = x0 + r*np.cos(theta)
   y = y0 + r*np.sin(theta)
   return np.around(x,decimals=2),np.around(y,decimals=2)
@@ -41,14 +42,22 @@ print(len(mag))
 print(freq)
 print(len(freq))
 
-
-plt.semilogx(freq,np.log(mag+10**(-50)))
-plt.xlim([2,100])
-plt.ylim(-90,5)
+sys = signal.TransferFunction(1000, [1,18,119,342,1360])
+w, mag1, phase = sys.bode()
+plt.subplot(2,1,1)
+plt.semilogx(w, mag1,label='actual') 
+plt.semilogx(freq,np.log(mag+10**(-50)), label='obtained from python code')
+plt.legend()
+plt.xlim([0,100])
+plt.ylim(-90,15)
 plt.title('magnitude vs freq')
 plt.xlabel('freq')
 plt.ylabel('M')
-plt.savefig("mag.eps")
+
+plt.subplot(2,1,2)
+plt.semilogx(w, phase)
+plt.title("phase vs freq")
+plt.savefig("plot.eps")
 plt.show()
 
 #if using termux
